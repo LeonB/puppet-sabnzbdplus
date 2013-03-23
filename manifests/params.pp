@@ -22,4 +22,22 @@ class sabnzbdplus::params {
 
 	$enabled = true
 
+	$api_key = '""' # sabnzbdplus default
+	$complete_dir = '/var/sabnzbdplus'
+	$download_dir = '/var/sabnzbdplus/incomplete'
+	$email_from = "sabnzbdplus@${fqdn}"
+	$email_server = 'localhost'
+	$email_to = "root@${fqdn}"
+	$host = '127.0.0.1'
+	$nzb_key = '""'
+	$port = '9090'
+	$user = 'sabnzbdplus'
+
+	$nzbmatrix_apikey = '""'
+	$nzbmatrix_username = '""'
+
+	$newzbin_username = '""'
+	$newzbin_password = '""'
+	$newzbin_url = 'www.newzbin2.es'
+
 }

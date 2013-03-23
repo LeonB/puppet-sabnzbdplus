@@ -1,0 +1,278 @@
+__version__ = 19
+
+[categories]
+[[anime]]
+priority = 0
+pp = ""
+name = anime
+script = Default
+newzbin = Anime
+dir = Anime
+[[apps]]
+priority = 0
+pp = ""
+name = apps
+script = Default
+newzbin = Apps
+dir = Apps
+[[books]]
+priority = 0
+pp = ""
+name = books
+script = Default
+newzbin = Books
+dir = Books
+[[consoles]]
+priority = 0
+pp = ""
+name = consoles
+script = Default
+newzbin = Consoles
+dir = Consoles
+[[emulation]]
+priority = 0
+pp = ""
+name = emulation
+script = Default
+newzbin = Emulation
+dir = Emulation
+[[games]]
+priority = 0
+pp = ""
+name = games
+script = Default
+newzbin = Games
+dir = Games
+[[misc]]
+priority = 0
+pp = ""
+name = misc
+script = Default
+newzbin = Misc
+dir = Miscellaneous
+[[pda]]
+priority = 0
+pp = ""
+name = pda
+script = Default
+newzbin = Pda
+dir = PDA
+[[resources]]
+priority = 0
+pp = ""
+name = resources
+script = Default
+newzbin = Resources
+dir = Resources
+[[unknown]]
+priority = 0
+pp = ""
+name = unknown
+script = Default
+newzbin = Unknown
+dir = Unknown
+[[tv]]
+priority = 0
+pp = ""
+name = tv
+script = sabToSickBeard.py
+newzbin = Tv
+dir = TV
+[[*]]
+priority = 0
+pp = 3
+name = *
+script = None
+newzbin = ""
+dir = ""
+[[movies]]
+priority = 0
+pp = ""
+name = movies
+script = Default
+newzbin = Movies
+dir = Movies
+[[music]]
+priority = 0
+pp = ""
+name = music
+script = Default
+newzbin = Music
+dir = Music
+
+[logging]
+enable_cherrypy_logging = 0
+log_backups = 5
+log_level = 2
+log_new = 0
+max_log_size = 5M
+
+[misc]
+admin_dir = admin
+allow_64bit_tools = 1
+allow_streaming = 0
+api_key = <%= @api_key %>
+api_warnings = 1
+auto_browser = 0
+auto_disconnect = 1
+auto_sort = 0
+bandwidth_limit = 0
+cache_dir = cache
+cache_limit = ""
+check_new_rel = 0
+cleanup_list = .nfo, .sfv
+complete_dir = <%= @complete_dir %>
+config_lock = 0
+create_group_folders = 0
+date_categories = tv
+date_sort_string = ""
+dirscan_dir = ""
+dirscan_opts = 3
+dirscan_priority = 0
+dirscan_script = None
+dirscan_speed = 5
+disable_api_key = 0
+download_dir = <%= @download_dir %>
+download_free = 10G
+email_account = ""
+email_dir = ""
+email_endjob = 0
+email_from = <%= @email_from %>,
+email_full = 1
+email_pwd = ""
+email_server = <%= @email_server %>
+email_to = <%= @email_to %>,
+enable_date_sorting = 0
+enable_filejoin = 1
+enable_https = 0
+enable_movie_sorting = 0
+enable_par_cleanup = 1
+enable_tsjoin = 1
+enable_tv_sorting = 1
+enable_unrar = 1
+enable_unzip = 1
+fail_on_crc = 0
+folder_max_length = 256
+folder_rename = 1
+host = <%= @host %>
+https_cert = server.cert
+https_key = server.key
+https_port = 9091
+ignore_samples = 2
+ignore_wrong_unrar = 0
+ionice = -c3
+language = en
+log_dir = logs
+login_realm = SABnzbd
+movie_categories = movies,
+movie_extra_folder = 0
+movie_sort_extra = -cd%1
+movie_sort_string = ""
+never_repair = 0
+nice = -n 19
+no_dupes = 0
+no_penalties = 0
+nzb_backup_dir = ""
+par2_multicore = 0
+par_option = ""
+password = ""
+pause_on_post_processing = 1
+permissions = ""
+port = <%= @port %>
+queue_complete = ""
+queue_complete_pers = 1
+quick_check = 1
+refresh_rate = 0
+replace_dots = 0
+replace_illegal = 1
+replace_spaces = 0
+rss_rate = 60
+safe_postproc = 1
+schedlines = ,
+script_dir = /etc/sabnzbdplus/scripts
+send_group = 0
+sfv_check = 1
+ssl_type = v23
+top_only = 1
+tv_sort_countries = 1
+tv_sort_string = ""
+unpack_check = 1
+username = ""
+web_color = gold
+web_color2 = darkblue
+web_dir = Plush
+web_dir2 = Classic
+size_limit = ""
+warned_old_queue = 0
+tv_categories = ,
+password_file = ""
+ignore_unrar_dates = 0
+pre_script = None
+email_rss = 0
+pause_on_pwrar = 1
+nzb_key = <%= @nzb_key %>
+ampm = 0
+rss_filenames = 0
+use_pickle = 0
+win_menu = 1
+movie_rename_limit = 100M
+pre_check = 1
+osx_speed = 1
+quota_period = m
+quota_day = ""
+quota_size = ""
+osx_menu = 1
+wait_ext_drive = 5
+req_completion_rate = 100.0
+fsys_type = 0
+allow_incomplete_nzb = 0
+uniconfig = 1
+randomize_server_ip = 0
+quota_resume = 0
+no_ipv6 = 0
+nomedia_marker = ""
+max_art_opt = 0
+max_art_tries = 3
+start_paused = 0
+local_range = ""
+https_chain = ""
+history_limit = 50
+ipv6_servers = 1
+show_sysload = 2
+keep_awake = 1
+rss_odd_titles = nzbindex.nl/, nzbindex.com/, nzbclub.com/
+prio_sort_list = ,
+news_items = 1
+empty_postproc = 0
+overwrite_files = 0
+web_watchdog = 0
+warn_empty_nzb = 1
+wait_for_dfolder = 0
+fail_hopeless = 0
+
+[newzbin]
+bookmark_rate = 60
+bookmarks = 0
+https = 1
+password = <%= @newzbin_password %>
+unbookmark = 1
+username = <%= @newzbin_username %>
+url = <%= @newzbin_url %>
+
+[nzbmatrix]
+apikey = <%= @nzbmatrix_apikey %>
+del_bookmark = 0
+username = <%= @nzbmatrix_username %>
+
+[growl]
+growl_enable = 0
+ntfosd_enable = 0
+growl_password = ""
+growl_server = ""
+notify_classes = startup, download, pp, complete, other
+ncenter_enable = 0
+[nzbxxx]
+username = ""
+apikey = ""
+
+[servers]
