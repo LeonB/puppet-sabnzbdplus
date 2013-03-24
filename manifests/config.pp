@@ -24,7 +24,7 @@ class sabnzbdplus::config {
 
 	file { '/etc/sabnzbdplus':
 		ensure  => $sabnzbdplus::ensure ? { present => directory, default => $sabnzbdplus::ensure },
-		force   => $true,
+		force   => true,
 		owner   => $sabnzbdplus::user,
 		group   => $sabnzbdplus::user,
 		mode    => 0640; # rwx,rx
@@ -39,7 +39,7 @@ class sabnzbdplus::config {
 			$sabnzbdplus::download_dir,
 		]:
 			ensure  => $sabnzbdplus::ensure ? { present => directory, default => $sabnzbdplus::ensure },
-			force   => $true,
+			force   => true,
 			owner   => $sabnzbdplus::user,
 			group   => $sabnzbdplus::user,
 			mode    => 0640; # rwx,rx
