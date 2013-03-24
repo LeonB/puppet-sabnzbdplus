@@ -1,5 +1,5 @@
 location /sabnzbd {
-	include /etc/nginx/conf.d/proxy.conf;
+	include /etc/nginx/proxy.conf;
 
 	proxy_pass http://localhost:9090;
 }
