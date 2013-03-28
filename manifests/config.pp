@@ -17,6 +17,7 @@ class sabnzbdplus::config {
 
 	users::account { $sabnzbdplus::user:
 	    ensure     => $sabnzbdplus::ensure,
+            home       => '/var/sabnzbdplus',
 	    uid        => 501,
 	    shell      => '/bin/false',
 	    comment    => 'sabnzbdplus daemon'
