@@ -17,7 +17,7 @@ class sabnzbdplus::params {
 	### Application related parameters
 
 	$package_name = $::operatingsystem ? {
-		default => 'sabnzbdplus'
+		default => ['sabnzbdplus', 'par2']
 	}
 
 	$enabled = true
