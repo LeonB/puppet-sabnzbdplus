@@ -111,7 +111,7 @@ max_log_size = 5M
 admin_dir = admin
 allow_64bit_tools = 1
 allow_streaming = 0
-api_key = <%= @api_key %>
+api_key = <%= scope.lookupvar('sabnzbdplus::api_key') %>
 api_warnings = 1
 auto_browser = 0
 auto_disconnect = 1
@@ -121,7 +121,7 @@ cache_dir = cache
 cache_limit = ""
 check_new_rel = 0
 cleanup_list = .nfo, .sfv
-complete_dir = <%= @complete_dir %>
+complete_dir = <%= scope.lookupvar('sabnzbdplus::complete_dir') %>
 config_lock = 0
 create_group_folders = 0
 date_categories = tv
@@ -132,16 +132,16 @@ dirscan_priority = 0
 dirscan_script = None
 dirscan_speed = 5
 disable_api_key = 0
-download_dir = <%= @download_dir %>
+download_dir = <%= scope.lookupvar('sabnzbdplus::download_dir') %>
 download_free = 10G
 email_account = ""
 email_dir = ""
 email_endjob = 0
-email_from = <%= @email_from %>,
+email_from = <%= scope.lookupvar('sabnzbdplus::email_from') %>,
 email_full = 1
 email_pwd = ""
-email_server = <%= @email_server %>
-email_to = <%= @email_to %>,
+email_server = <%= scope.lookupvar('sabnzbdplus::email_server') %>
+email_to = <%= scope.lookupvar('sabnzbdplus::email_to') %>,
 enable_date_sorting = 0
 enable_filejoin = 1
 enable_https = 0
@@ -154,7 +154,7 @@ enable_unzip = 1
 fail_on_crc = 0
 folder_max_length = 256
 folder_rename = 1
-host = <%= @host %>
+host = <%= scope.lookupvar('sabnzbdplus::host') %>
 https_cert = server.cert
 https_key = server.key
 https_port = 9091
@@ -177,8 +177,8 @@ par2_multicore = 0
 par_option = ""
 password = ""
 pause_on_post_processing = 1
-permissions = 755
-port = <%= @port %>
+permissions = <%= scope.lookupvar('sabnzbdplus::complete_dir_permissions') %>
+port = <%= scope.lookupvar('sabnzbdplus::port') %>
 queue_complete = ""
 queue_complete_pers = 1
 quick_check = 1
@@ -210,7 +210,7 @@ ignore_unrar_dates = 0
 pre_script = None
 email_rss = 0
 pause_on_pwrar = 1
-nzb_key = <%= @nzb_key %>
+nzb_key = <%= scope.lookupvar('sabnzbdplus::nzb_key') %>
 ampm = 0
 rss_filenames = 0
 use_pickle = 0
@@ -254,15 +254,15 @@ fail_hopeless = 0
 bookmark_rate = 60
 bookmarks = 0
 https = 1
-password = <%= @newzbin_password %>
+password = <%= scope.lookupvar('sabnzbdplus::newzbin_password') %>
 unbookmark = 1
-username = <%= @newzbin_username %>
-url = <%= @newzbin_url %>
+username = <%= scope.lookupvar('sabnzbdplus::newzbin_username') %>
+url = <%= scope.lookupvar('sabnzbdplus::newzbin_url') %>
 
 [nzbmatrix]
-apikey = <%= @nzbmatrix_apikey %>
+apikey = <%= scope.lookupvar('sabnzbdplus::nzbmatrix_apikey') %>
 del_bookmark = 0
-username = <%= @nzbmatrix_username %>
+username = <%= scope.lookupvar('sabnzbdplus::nzbmatrix_username') %>
 
 [growl]
 growl_enable = 0

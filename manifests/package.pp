@@ -1,6 +1,6 @@
 class sabnzbdplus::package {
 
-	package  { $sabnzbdplus::package_name:
+	package  { $sabnzbdplus::packages:
 		ensure => $sabnzbdplus::ensure,
 		require => Apt::Source['sabnzbdplus'],
 	}

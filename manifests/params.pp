@@ -16,15 +16,16 @@ class sabnzbdplus::params {
 
 	### Application related parameters
 
-	$package_name = $::operatingsystem ? {
+	$packages = $::operatingsystem ? {
 		default => ['sabnzbdplus', 'par2']
 	}
 
 	$enabled = true
 
 	$api_key = '""' # sabnzbdplus default
-	$complete_dir = '/var/sabnzbdplus'
-	$download_dir = '/var/sabnzbdplus/incomplete'
+	$complete_dir = '/var/lib/sabnzbdplus'
+	$complete_dir_permissions = 0777
+	$download_dir = '/var/lib/sabnzbdplus/incomplete'
 	$email_from = "sabnzbdplus@${fqdn}"
 	$email_server = 'localhost'
 	$email_to = "root@${fqdn}"
