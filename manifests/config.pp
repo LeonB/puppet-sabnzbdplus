@@ -23,7 +23,12 @@ class sabnzbdplus::config {
         comment    => 'sabnzbdplus daemon'
     }
 
-    file { '/etc/sabnzbdplus':
+    file {
+        [
+            '/etc/sabnzbdplus',
+            '/etc/sabnzbdplus/admin',
+            '/etc/sabnzbdplus/logs',
+        ]:
         ensure  => $sabnzbdplus::ensure ? { present => directory, default => $sabnzbdplus::ensure },
         force   => true,
         owner   => $sabnzbdplus::user,
@@ -31,19 +36,17 @@ class sabnzbdplus::config {
         mode    => 0640; # rwx,rx
     }
 
-    file {
-        [
-            '/etc/sabnzbdplus/admin',
-            '/etc/sabnzbdplus/logs',
-            $sabnzbdplus::complete_dir,
-            $sabnzbdplus::download_dir,
-        ]:
-            ensure  => $sabnzbdplus::ensure ? { present => directory, default => $sabnzbdplus::ensure },
-            force   => true,
-            owner   => $sabnzbdplus::user,
-            group   => $sabnzbdplus::user,
-            mode    => 0644; # rw,r,r
-    }
+    # file {
+    #     [
+    #         $sabnzbdplus::complete_dir,
+    #         $sabnzbdplus::download_dir,
+    #     ]:
+    #         ensure  => $sabnzbdplus::ensure ? { present => directory, default => $sabnzbdplus::ensure },
+    #         force   => true,
+    #         owner   => $sabnzbdplus::user,
+    #         group   => $sabnzbdplus::user,
+    #         mode    => 0644; # rw,r,r
+    # }
 
     file { '/etc/sabnzbdplus/scripts/':
         ensure  => $sabnzbdplus::ensure ? { present => directory, default => $sabnzbdplus::ensure },
