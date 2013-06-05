@@ -6,7 +6,7 @@ class sabnzbdplus::config {
         ensure  => $sabnzbdplus::ensure
      }
 
-    augeas { "/etc/default/puppet":
+    augeas { "/etc/default/sabnzbdplus":
         context => '/files/etc/default/sabnzbdplus',
         changes => [
             "set USER ${sabnzbdplus::user}",
