@@ -1,16 +1,21 @@
 class sabnzbdplus::config {
 
+    $directory_ensure = $sabnzbdplus::ensure ? {
+        present => directory,
+        default => $sabnzbdplus::ensure
+    }
+
     nginx::vhost::snippet { 'sabnzbdplus':
+        ensure  => $sabnzbdplus::ensure
         vhost   => 'default',
         content => template('sabnzbdplus/nginx_vhost.erb'),
-        ensure  => $sabnzbdplus::ensure
-     }
+    }
 
-    augeas { "/etc/default/sabnzbdplus":
+    augeas { '/etc/default/sabnzbdplus':
         context => '/files/etc/default/sabnzbdplus',
         changes => [
             "set USER ${sabnzbdplus::user}",
-            "set CONFIG /etc/sabnzbdplus/",
+            'set CONFIG /etc/sabnzbdplus/',
         ],
         notify  => Class['sabnzbdplus::service'],
     }
@@ -29,11 +34,11 @@ class sabnzbdplus::config {
             '/etc/sabnzbdplus/admin',
             '/etc/sabnzbdplus/logs',
         ]:
-        ensure  => $sabnzbdplus::ensure ? { present => directory, default => $sabnzbdplus::ensure },
+        ensure  => $directory_ensure,
         force   => true,
         owner   => $sabnzbdplus::user,
         group   => $sabnzbdplus::user,
-        mode    => 0640; # rwx,rx
+        mode    => '0640'; # rwx,rx
     }
 
     # file {
@@ -41,7 +46,7 @@ class sabnzbdplus::config {
     #         $sabnzbdplus::complete_dir,
     #         $sabnzbdplus::download_dir,
     #     ]:
-    #         ensure  => $sabnzbdplus::ensure ? { present => directory, default => $sabnzbdplus::ensure },
+    #         ensure  => $directory_ensure,
     #         force   => true,
     #         owner   => $sabnzbdplus::user,
     #         group   => $sabnzbdplus::user,
@@ -49,13 +54,13 @@ class sabnzbdplus::config {
     # }
 
     file { '/etc/sabnzbdplus/scripts/':
-        ensure  => $sabnzbdplus::ensure ? { present => directory, default => $sabnzbdplus::ensure },
+        ensure  => $directory_ensure,
         force   => true,
         recurse => true,
         owner   => $sabnzbdplus::user,
         group   => $sabnzbdplus::user,
-        mode    => 0640, # rw,r
-        source => 'puppet:///modules/sabnzbdplus/scripts/',
+        mode    => '0640', # rw,r
+        source  => 'puppet:///modules/sabnzbdplus/scripts/',
     }
 
     concat { '/etc/sabnzbdplus/sabnzbd.ini':
@@ -67,8 +72,8 @@ class sabnzbdplus::config {
     }
 
     concat::fragment { 'sabnzbdplus_main':
-        target => '/etc/sabnzbdplus/sabnzbd.ini',
-        content => template("sabnzbdplus/sabnzbd.ini.erb"),
+        target  => '/etc/sabnzbdplus/sabnzbd.ini',
+        content => template('sabnzbdplus/sabnzbd.ini.erb'),
         order   => 01,
     }
 }
