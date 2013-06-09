@@ -6,7 +6,7 @@ class sabnzbdplus::config {
     }
 
     nginx::vhost::snippet { 'sabnzbdplus':
-        ensure  => $sabnzbdplus::ensure
+        ensure  => $sabnzbdplus::ensure,
         vhost   => 'default',
         content => template('sabnzbdplus/nginx_vhost.erb'),
     }
