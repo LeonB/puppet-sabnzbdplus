@@ -11,7 +11,7 @@ class sabnzbdplus::package {
     apt::source { 'sabnzbdplus':
         ensure      => $sabnzbdplus::ensure,
         location    => 'http://ppa.launchpad.net/jcfp/ppa/ubuntu',
-        key         => 'F13930B14BB9F05F',
+        key         => '4BB9F05F',
         include_src => false,
     }
 }
